@@ -15,7 +15,14 @@
       --muted: #9ca3af;
       --border: #1f2937;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text","Segoe UI", sans-serif; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text","Segoe UI", sans-serif;
+    }
+
     body {
       background: radial-gradient(circle at top, #111827, #020617);
       min-height: 100vh;
@@ -24,10 +31,32 @@
       justify-content: center;
       align-items: stretch;
     }
-    .app { max-width: 480px; width: 100%; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-    header { text-align: center; padding-bottom: 4px; }
-    header h1 { font-size: 1.8rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
-    header p { font-size: 1.1rem; color: var(--muted); }
+
+    .app {
+      max-width: 480px;
+      width: 100%;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 4px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
 
     .card {
       background: linear-gradient(145deg, #020617, #020617, #020617);
@@ -40,16 +69,20 @@
       gap: 8px;
       min-height: 220px;
     }
-    .card.active { display: flex; }
+
+    .card.active {
+      display: flex;
+    }
 
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       color: var(--muted);
       margin-bottom: 4px;
     }
+
     .pill {
       padding: 2px 9px;
       border-radius: 999px;
@@ -59,10 +92,27 @@
       align-items: center;
       gap: 5px;
     }
-    .pill-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
 
-    .q-label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-    .question-text { font-size: 1.02rem; line-height: 1.5; font-weight: 600; }
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .q-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .question-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      font-weight: 600;
+    }
 
     .answer-wrapper {
       margin-top: 12px;
@@ -71,37 +121,119 @@
       background: radial-gradient(circle at top left, var(--accent-soft), transparent);
       border: 1px dashed rgba(148, 163, 184, 0.25);
     }
-    .answer-text { font-size: 0.95rem; line-height: 1.5; display: none; }
-    .answer-text.visible { display: block; }
-    .hint-text { font-size: 0.78rem; color: var(--muted); }
 
-    .history { font-size: 0.86rem; line-height: 1.48; color: var(--muted); }
-    .history strong { color: var(--text); }
+    .answer-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      display: none;
+    }
 
-    .btn-row { display: flex; gap: 8px; margin-top: 12px; }
+    .answer-text.visible {
+      display: block;
+    }
+
+    #proofText {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hint-text {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .history {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .history strong {
+      color: var(--text);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
     button {
-      border: 0; outline: 0; border-radius: 999px;
-      padding: 10px 14px; font-size: 0.9rem; font-weight: 500;
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 6px; cursor: pointer;
+      border: 0;
+      outline: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
       transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.14s ease;
     }
-    button:active { transform: translateY(1px) scale(0.99); }
+
+    button:active {
+      transform: translateY(1px) scale(0.99);
+    }
+
     .btn-primary {
       flex: 1;
       background: linear-gradient(135deg, #22c55e, #059669);
       color: #022c22;
       box-shadow: 0 8px 18px rgba(16, 185, 129, 0.35);
     }
-    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); flex: 0.9; }
-    .btn-ghost { background: transparent; color: var(--muted); border-radius: 999px; padding: 6px 10px; font-size: 0.78rem; }
-    .btn-small { padding: 6px 10px; font-size: 0.78rem; }
 
-    .controls-row { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; gap: 8px; }
-    .index-indicator { font-size: 0.78rem; color: var(--muted); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      flex: 0.9;
+    }
 
-    .progress-bar { width: 100%; height: 4px; border-radius: 999px; background: #020617; overflow: hidden; margin-top: 4px; }
-    .progress-inner { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, #22c55e, #a3e635); transition: width 0.18s ease-out; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+    }
+
+    .btn-small {
+      padding: 6px 10px;
+      font-size: 0.78rem;
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+      gap: 8px;
+    }
+
+    .index-indicator {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      border-radius: 999px;
+      background: #020617;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-inner {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #22c55e, #a3e635);
+      transition: width 0.18s ease-out;
+    }
 
     footer {
       margin-top: auto;
@@ -110,11 +242,19 @@
       color: var(--muted);
       padding-bottom: 6px;
     }
-    footer a { color: var(--accent); text-decoration: none; }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
     @media (max-width: 360px) {
-      .question-text { font-size: 0.98rem; }
-      .answer-text { font-size: 0.9rem; }
+      .question-text {
+        font-size: 0.98rem;
+      }
+      .answer-text {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -138,17 +278,16 @@
       </div>
       <div class="q-label">Welcome</div>
       <div class="history">
-        The <strong>Westminster Shorter Catechism</strong> was formulated in 1647 by the Westminster Assembly in London as a concise teaching tool for grounding believers in Reformed doctrine.[page:1]
+        The <strong>Westminster Shorter Catechism</strong> was formulated in 1647 by the Westminster Assembly in London as a concise teaching tool for grounding believers in Reformed doctrine.
       </div>
       <br />
       <div class="history">
-        It summarizes key biblical truths in question-and-answer form, covering God, sin, Christ, salvation, and the Christian life.[page:1]
+        It summarizes key biblical truths in question-and-answer form, covering God, sin, Christ, salvation, and the Christian life.
       </div>
       <br />
       <div class="history">
         This app presents one question per card. Try to recite the answer from memory, then tap <strong>Reveal answer</strong> to check yourself and move on.
       </div>
-
       <div class="btn-row">
         <button class="btn-outline" id="startAtBeginningBtn" type="button">
           Start at Q1
@@ -170,7 +309,6 @@
           ⟵ Intro
         </button>
       </div>
-
       <div class="q-label" id="questionLabel">Question</div>
       <div class="question-text" id="questionText"></div>
 
@@ -179,6 +317,7 @@
           Try to say the answer out loud, then tap “Reveal answer”.
         </div>
         <div class="answer-text" id="answerText"></div>
+        <div class="answer-text" id="proofText"></div>
       </div>
 
       <div class="btn-row">
@@ -205,36 +344,38 @@
     </section>
 
     <footer>
-      Text from the Westminster Shorter Catechism with Scripture proofs (© respective publishers, used from your own copy/source).[page:1]
-      <br />
+      Text from the Westminster Shorter Catechism with Scripture proofs (© respective publishers, used from your own copy/source).<br />
       Online text available at
       <a href="https://thewestminsterstandard.org/westminster-shorter-catechism/" target="_blank" rel="noopener noreferrer">
         The Westminster Standard
-      </a>.[page:1]
+      </a>.
     </footer>
   </div>
 
   <script>
-    // 1) FILL THIS WITH THE FULL 107 Q&As, copied manually from your source.
-    // For example (showing only the first few as structure — replace with full text):
+    // Fill this with the full 107 Q&As from your own source.
     const qaData = [
       {
         number: 1,
         question: "What is the chief end of man?",
-        answer: "Man’s chief end is to glorify God, and to enjoy him for ever."
-        
+        answer: "Man’s chief end is to glorify God, and to enjoy him for ever.",
+        proof: "1 Cor 10:31; Rom 11:36; Ps 73:25–26."
       },
       {
         number: 2,
         question: "What rule hath God given to direct us how we may glorify and enjoy him?",
-        answer: "The Word of God, which is contained in the Scriptures of the Old and New Testaments, is the only rule to direct us how we may glorify and enjoy him."
+        answer:
+          "The Word of God, which is contained in the Scriptures of the Old and New Testaments, is the only rule to direct us how we may glorify and enjoy him.",
+        proof: "2 Tim 3:16–17; Eph 2:20; 1 John 1:3–4."
       },
       {
         number: 3,
         question: "What do the Scriptures principally teach?",
-        answer: "The Scriptures principally teach, what man is to believe concerning God, and what duty God requires of man."
+        answer:
+          "The Scriptures principally teach, what man is to believe concerning God, and what duty God requires of man.",
+        proof: "2 Tim 1:13; 2 Tim 3:16; Eccl 12:13."
       }
-      // Continue with Q4–Q107 in the same shape.
+      // Continue Q4–Q107 here, same shape: number, question, answer, proof
     ];
 
     const welcomeCard = document.getElementById("welcome-card");
@@ -242,12 +383,12 @@
     const questionLabel = document.getElementById("questionLabel");
     const questionText = document.getElementById("questionText");
     const answerText = document.getElementById("answerText");
+    const proofText = document.getElementById("proofText");
     const answerHint = document.getElementById("answerHint");
     const revealBtn = document.getElementById("revealBtn");
     const nextBtn = document.getElementById("nextBtn");
     const indexIndicator = document.getElementById("indexIndicator");
     const progressInner = document.getElementById("progressInner");
-
     const startAtBeginningBtn = document.getElementById("startAtBeginningBtn");
     const randomStartBtn = document.getElementById("randomStartBtn");
     const skipIntroBtn = document.getElementById("skipIntroBtn");
@@ -277,17 +418,17 @@
     function loadQuestion(index) {
       const qa = qaData[order[index]];
       currentIndex = index;
-
       questionLabel.textContent = "Question " + qa.number;
       questionText.textContent = qa.question;
       answerText.textContent = qa.answer;
+      proofText.textContent = qa.proof || "";
       answerText.classList.remove("visible");
+      proofText.classList.remove("visible");
       answerHint.style.display = "block";
       revealBtn.disabled = false;
 
       indexIndicator.textContent =
         "Q" + qa.number + " • Card " + (index + 1) + " of " + qaData.length;
-
       const progress = ((index + 1) / qaData.length) * 100;
       progressInner.style.width = progress.toFixed(1) + "%";
     }
@@ -299,6 +440,7 @@
 
     revealBtn.addEventListener("click", () => {
       answerText.classList.add("visible");
+      proofText.classList.add("visible");
       answerHint.style.display = "none";
       revealBtn.disabled = true;
     });
@@ -321,6 +463,7 @@
     });
 
     skipIntroBtn.addEventListener("click", () => {
+      order = qaData.map((_, i) => i);
       showIntro(false);
       loadQuestion(0);
     });
